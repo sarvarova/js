@@ -20,17 +20,8 @@ function returnFirstArgument(a) {
 
 var result = (10);
 
-console.log(result);
+//console.log(result); результат задания 1
 
-
-//function returnFirstArgument(b) {
-  //var result = b;
-
-  //return result;
-//}
-//var result = ('привет');
-
-//console.log(result);
 
 /*
  Задание 2:
@@ -48,16 +39,8 @@ console.log(result);
    }
       var result = sumWithDefaultst(10, 20);
 
-      console.log(result);
+      //console.log(result); вернет 30
 
-      //function sumWithDefaultst(a, b) {
-        //var result = a + b;
-      
-        //return result;
-      //}
-       //var result = sumWithDefaultst(2, 4);
-      
-       //console.log(result);
 
  /*2.1 *: Значение по умолчанию для второго аргумента должно быть равно 100
 
@@ -73,7 +56,7 @@ function sumWithDefaults(a, b = 100) {
 
 var result = sumWithDefaults(10);
 
-console.log(result);
+//console.log(result); вернет 110
 
 /*
  Задание 3:
@@ -93,7 +76,7 @@ function returnFnResult(fn) {
 
 var result = returnFnResult('привет');
 
-console.log(result());
+//console.log(result()); вернет 'привет'
 
 
 /*
@@ -109,6 +92,7 @@ console.log(result());
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
+
 function returnCounter(number) {
   return function fn() {
     return ++number;
@@ -117,9 +101,6 @@ function returnCounter(number) {
 
 var f = returnCounter(10);
 
-console.log(f());
-console.log(f());
-console.log(f());
 
 //значение аргумента должно быть 0 по умолчанию
 
@@ -131,9 +112,9 @@ function returnCounters(number = 0) {
 
 var f = returnCounters();
 
-console.log(f());
-console.log(f());
-console.log(f());  
+//console.log(f()); выведет 1
+//console.log(f()); выведет 2
+//console.log(f()); выведет 3
 
 
 
@@ -162,7 +143,7 @@ var result = returnArgumentsArray(1, 2, 3);
 
 //var result = returnArgumentsArray(); нет аргументов/ возващает пустой массив
 
-console.log(result);
+//console.log(result); вырнет массив [1, 2, 3] / либо []
 
 /*
  Задание 6 *:
@@ -190,7 +171,6 @@ function bindFunction(fn, ...args) {
   return fn.bind(null, ...args);
 }
 
-console.log(newSum());
 
 export {
     returnFirstArgument,

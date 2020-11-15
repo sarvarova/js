@@ -15,27 +15,27 @@ import {
 describe('ДЗ 1 - функции', () => {
     describe('returnFirstArgument', () => {
       it('должна возвращать переданный аргумент', () => {
-        const a = random();
-        const result = returnFirstArgument(a);
+        const value = random();
+        const result = returnFirstArgument(value);
   
-        expect(result).toBe(a);
+        expect(result).toBe(value);
       });
     });
   
     describe('sumWithDefaults', () => {
       it('должна возвращать сумму переданных аргументов', () => {
-        const a = random('number');
-        const b = random('number');
-        const result = sumWithDefaults(a, b);
+        const valueA = random('number');
+        const valueB = random('number');
+        const result = sumWithDefaults(valueA, valueB);
   
-        expect(result).toBe(a + b);
+        expect(result).toBe(valueA + valueB);
       });
   
       it('значение по умолчанию второго аргумента должно быть 100', () => {
-        const a = random('number');
-        const result = sumWithDefaults(a);
+        const value = random('number');
+        const result = sumWithDefaults(value);
   
-        expect(result).toBe(a + 100);
+        expect(result).toBe(value + 100);
       });
     });
 
