@@ -13,15 +13,8 @@
  Другими словами: функция должна возвращать в неизменном виде то, что поступает ей на вход
  */
 function returnFirstArgument(a) {
-  var result = a;
-
-  return result;
+  return a;
 }
-
-var result = (10);
-
-//console.log(result); результат задания 1
-
 
 /*
  Задание 2:
@@ -32,31 +25,19 @@ var result = (10);
    sumWithDefaults(10, 20) вернет 30
    sumWithDefaults(2, 4) вернет 6 */
 
-   function sumWithDefaultst(a, b) {
-       var result = a + b;
+function sumWithDefaultst(a, b) {
+  return a + b;
+}
 
-       return result;
-   }
-      var result = sumWithDefaultst(10, 20);
-
-      //console.log(result); вернет 30
-
-
- /*2.1 *: Значение по умолчанию для второго аргумента должно быть равно 100
+/*2.1 *: Значение по умолчанию для второго аргумента должно быть равно 100
 
  Пример:
    sumWithDefaults(10) вернет 110
  */
 
 function sumWithDefaults(a, b = 100) {
-  var result = a + b;
-
-  return result;
+  return a + b;
 }
-
-var result = sumWithDefaults(10);
-
-//console.log(result); вернет 110
 
 /*
  Задание 3:
@@ -68,16 +49,8 @@ var result = sumWithDefaults(10);
  */
 
 function returnFnResult(fn) {
-  var value = fn;
-  return function fn() { 
-    return value; 
-  };
+  return fn();
 }
-
-var result = returnFnResult('привет');
-
-//console.log(result()); вернет 'привет'
-
 
 /*
  Задание 4:
@@ -93,30 +66,13 @@ var result = returnFnResult('привет');
    console.log(f()); // выведет 13
  */
 
-function returnCounter(number) {
-  return function fn() {
-    return ++number;
-  }
-}
-
-var f = returnCounter(10);
-
-
 //значение аргумента должно быть 0 по умолчанию
 
-function returnCounters(number = 0) {
+function returnCounter(number = 0) {
   return function fn() {
     return ++number;
-  }
+  };
 }
-
-var f = returnCounters();
-
-//console.log(f()); выведет 1
-//console.log(f()); выведет 2
-//console.log(f()); выведет 3
-
-
 
 /*
  Задание 5 *:
@@ -128,22 +84,11 @@ var f = returnCounters();
    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
  */
 
-
 function returnArgumentsArray() {
-  var result = [...arguments];
-
-  for (var i = 0; i < arguments.length; i++) {
-    result[i] = arguments[i];
-  }
+  const result = [...arguments];
 
   return result;
 }
-
-var result = returnArgumentsArray(1, 2, 3);
-
-//var result = returnArgumentsArray(); нет аргументов/ возващает пустой массив
-
-//console.log(result); вырнет массив [1, 2, 3] / либо []
 
 /*
  Задание 6 *:
@@ -161,24 +106,16 @@ var result = returnArgumentsArray(1, 2, 3);
    console.log(newSum()) выведет 6
  */
 
-function sum(a, b) {
-  return a + b;
-}
-
-var newSum = bindFunction(sum, 2, 4);
-
 function bindFunction(fn, ...args) {
   return fn.bind(null, ...args);
 }
 
-
 export {
-    returnFirstArgument,
-    sumWithDefaultst,
-    sumWithDefaults,
-    returnArgumentsArray,
-    returnFnResult,
-    returnCounter,
-    returnCounters,
-    bindFunction
-}
+  returnFirstArgument,
+  sumWithDefaultst,
+  sumWithDefaults,
+  returnArgumentsArray,
+  returnFnResult,
+  returnCounter,
+  bindFunction,
+};
