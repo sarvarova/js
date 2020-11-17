@@ -25,9 +25,9 @@ function returnFirstArgument(a) {
    sumWithDefaults(10, 20) вернет 30
    sumWithDefaults(2, 4) вернет 6 */
 
-function sumWithDefaultst(a, b) {
-  return a + b;
-}
+//function sumWithDefaultst(a, b) {
+//  return a + b;
+//}
 
 /*2.1 *: Значение по умолчанию для второго аргумента должно быть равно 100
 
@@ -112,7 +112,7 @@ function bindFunction(fn, ...args) {
 
 export {
   returnFirstArgument,
-  sumWithDefaultst,
+  //sumWithDefaultst,
   sumWithDefaults,
   returnArgumentsArray,
   returnFnResult,

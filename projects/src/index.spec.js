@@ -9,7 +9,7 @@ import {
   returnFnResult,
   returnCounter,
   sumWithDefaults,
-  sumWithDefaultst,
+  //sumWithDefaultst,
 } from './index';
 
 describe('ДЗ 1 - функции', () => {
@@ -26,7 +26,7 @@ describe('ДЗ 1 - функции', () => {
     it('должна возвращать сумму переданных аргументов', () => {
       const valueA = random('number');
       const valueB = random('number');
-      const result = sumWithDefaultst(valueA, valueB);
+      const result = sumWithDefaults(valueA, valueB);
 
       expect(result).toBe(valueA + valueB);
     });
