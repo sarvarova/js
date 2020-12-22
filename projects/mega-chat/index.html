@@ -1,0 +1,251 @@
+<style>
+
+    html, body, #app, #main {
+        width: 100%;
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        background: #0e1621;
+    }
+
+    /*.wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        
+    }*/
+
+    h3 {
+        color: #FFFFFF;
+    }
+
+    p {
+        width: 330px;
+        height: 45px;
+        color: #7F91A4;
+        text-align: center;
+        margin: 0;
+    }
+
+    #app {
+        display: flex;
+        justify-content: center;
+    }
+
+    #main {
+        display: flex;
+    }
+
+    .left-side {
+        flex-grow: 1;
+        max-width: 320px;
+        background: #17212B;
+        color: #5387C1;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .user-info {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .user-name {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .user-photo, .message-item-photo {
+        margin-right: 15px;
+        background: url(/projects/mega-chat/no-photo.png);
+        background-size: cover;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .user-list-header {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .user-list {
+        padding: 5px 0 0 10px
+    }
+
+    .right-side {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+
+    .messages-container {
+        flex-grow: 1;
+        overflow: scroll;
+    }
+
+    .messages-container::-webkit-scrollbar {
+        background-color: #465461;
+    }
+
+    .input-container {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .message-input {
+        height: 35px;
+        flex-grow: 1;
+        margin: 0 10px 0 0;
+        outline: none;
+        background: transparent;
+        border: none;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 18px;
+        color: #858f98;
+        padding: 10px;
+    }
+
+    .send-button {
+        height: 25px;
+    }
+
+    #login {
+        position: absolute;
+        top: 20vh;
+        width: 500px;
+        height: 497px;
+        background-color: #17212B;           
+        border-radius: 10px;
+        box-shadow: 0 0 10px #7f7f7f;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    #login::before {
+        position: relative;
+        content: url(/projects/mega-chat/Group\ 1.svg);
+        top: 0;
+    }
+
+    .login-field {
+        margin: 15px;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .login-field input {
+        font-size: 16px;
+        height: 30px;
+        width: 100%;
+    }
+
+    .login-name-input {
+        outline: none;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #465461;
+        color: #858f98;
+    }
+
+    .login-submit, .send-button {
+        height: 43px;
+        width: 132px;
+        background: #5188C1;
+        color: #FFFFFF;
+        text-transform: uppercase;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .login-error {
+        color: red;
+    }
+
+    .message-item {
+        display: flex;
+    }
+
+    .message-item-system {
+        font-size: 14px;
+        color: gray;
+    }
+
+    .message-item ~ .message-item {
+        margin-top: 15px;
+    }
+
+    .message-item-right {
+        flex-grow: 1;
+    }
+
+    .message-item-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .message-item-header-name {
+        font-weight: bold;
+        margin-right: 15px;
+        color: #5188C1;
+    }
+
+    .message-item-header-time {
+        color: gray;
+        font-size: 12px;
+    }
+
+    .message-item-text {
+        color: #FFFFFF;
+    }
+</style>
+
+    <div id="app">
+        <div id="login" class="hidden">
+            <h3>Авторизация</h3>
+            <p>Введите пожалуйста свой ник для дальнейшей авторизации</p>
+            <div class="login-field">
+                <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите свой ник">
+            </div>
+            <div class="login-field">
+                <button class="login-submit" data-role="login-submit">Войти</button>
+            </div>
+            <div class="login-error" data-role="login-error"></div>
+        </div>
+
+        <div id="main" class="hidden">
+            <div class="left-side">
+                <div class="user-info">
+                    <div class="user-photo" data-role="user-photo"></div>
+                    <div class="user-name" data-role="user-name"></div>
+                </div>
+
+                <div class="user-list-container">
+                    <div class="user-list-header">
+                        Все пользователи:
+                    </div>
+
+                    <div class="user-list" data-role="user-list">
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="messages-container" data-role="messages-list"></div>
+                <div class="input-container" data-role="message-sender">
+                    <input class="message-input" data-role="message-input" type="text" placeholder="Введите сообщение..."/>
+                    <button class="send-button" data-role="message-send-button">Отправить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
